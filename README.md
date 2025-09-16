@@ -1,4 +1,4 @@
-# Spring Boot + MySQL with Docker
+# Spring Boot + MySQL Docker
 
 This repository demonstrates how to containerize a **Java Spring Boot application** with a **MySQL database** using Docker.  
 It evolves through three versions, starting from a quick "Fast & Loose" setup and moving toward a production-ready deployment with bonus challenges.
