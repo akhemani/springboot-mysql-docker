@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: mysql-db
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: appdb
+    ports:
+      - "3306:3306"     # exposed for convenience (fast & loose)
+    restart: unless-stopped
+
+  app:
+    build: .
+    image: my-java-app:v1
+    container_name: java-app
+    environment:
+      DB_HOST: db
+      DB_PORT: "3306"
+      DB_NAME: appdb
+      DB_USER: root
+      DB_PASS: password
+    ports:
+      - "8081:8081"
+    depends_on:
+      - db
+    restart: unless-stopped
